@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     use HasFactory;
+    protected $table ='users_fix';
+    // Kolom-kolom yang dapat diisi massal (fillable)
+
+    protected $fillable = [
+        'name',
+        'email',
+    ];
+
 }
