@@ -8,12 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
-    protected $table ='users_fix';
-    // Kolom-kolom yang dapat diisi massal (fillable)
+
+    protected $table = 'project'; // Sesuaikan dengan nama tabel Anda
 
     protected $fillable = [
         'name',
-        'email',
+        'start_date',
+        'end_date',
+        'client_id_project',
+        'telepon',
     ];
 
+    // Definisikan kunci asing dan hubungan dengan tabel 'client'
+    public function client()
+    {
+        return $this->belongsTo(Client::class, 'client_id_project', 'id');
+    }
 }
