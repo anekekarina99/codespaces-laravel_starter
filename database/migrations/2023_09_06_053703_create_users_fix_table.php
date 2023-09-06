@@ -49,90 +49,67 @@ return new class extends Migration
             $table->string('name');
             $table->date('start_date');
             $table->date('end_date');
-            $table->unsignedBigInteger('client_id_p');
+            $table->unsignedBigInteger('client_id_project');
             $table->string('telepon');
+
+            $table->foreign('client_id_project')->references('id')->on('client');
+        });
+        //Tabel Penawaran Jasa
+        Schema::create('penawaran_jasa', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->unsignedBigInteger('work_id');
+            $table->unsignedBigInteger('project_id');
+            $table->integer('jumlah');
+
+            $table->foreign('work_id')->references('id')->on('client');
+            $table->foreign('project_id')->references('id')->on('project');
+        });
+        //Tabel Tagihan/ Total Payment
+        Schema::create('total_payment', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->unsignedBigInteger('project_id');
+            $table->integer('total_tagihan');
+            $table->date('tanggal_tagihan');
+
+            $table->foreign('project_id')->references('id')->on('project');
+        });
+        //Tabel Pembayaran atas Pembelian/activa_order
+        Schema::create('activa_order', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->unsignedBigInteger('tagihan_id');
+            $table->integer('jumlah_pembayaraan');
+            $table->date('tanggal_pemb');
+
+            $table->foreign('tagihan_id')->references('id')->on('total_payment');
+        });
+        //Tabel Pesanan pembelian
+        Schema::create('pesanan_pembelian', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->unsignedBigInteger('client_id');
+            $table->date('tanggaL-pesanan');
+            $table->string('nomor_pesanan');
 
             $table->foreign('client_id')->references('id')->on('client');
         });
-        //Tabel P
-        Schema::create('client', function (Blueprint $table) {
+        //Tabel referensi perushaan
+        Schema::create('referensi_perusahaan', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('nama');
             $table->string('alamat');
             $table->string('telepon');
         });
-        //Tabel P
-        Schema::create('client', function (Blueprint $table) {
+        //Tabel referensi bahasa
+        Schema::create('refernsi_bahasa', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('nama');
-            $table->string('alamat');
-            $table->string('telepon');
-        });
-        //Tabel P
-        Schema::create('client', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('nama');
-            $table->string('alamat');
-            $table->string('telepon');
-        });
-        //Tabel P
-        Schema::create('client', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('nama');
-            $table->string('alamat');
-            $table->string('telepon');
-        });
-        //Tabel P
-        Schema::create('client', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('nama');
-            $table->string('alamat');
-            $table->string('telepon');
-        });
-        //Tabel P
-        Schema::create('client', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('nama');
-            $table->string('alamat');
-            $table->string('telepon');
-        });
-        //Tabel P
-        Schema::create('client', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('nama');
-            $table->string('alamat');
-            $table->string('telepon');
-        });
-        //Tabel P
-        Schema::create('client', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('nama');
-            $table->string('alamat');
-            $table->string('telepon');
-        });
-        //Tabel P
-        Schema::create('client', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('nama');
-            $table->string('alamat');
-            $table->string('telepon');
-        });
-        //Tabel P
-        Schema::create('client', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('nama');
-            $table->string('alamat');
-            $table->string('telepon');
+            $table->string('kode_bahasa');
+            $table->string('nama_bahasa');
+
         });
 
     }
