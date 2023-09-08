@@ -1,19 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RefBahasa extends Model
+class ReferensiBahasa extends Model
 {
-    use HasFactory;
-    protected $table ='users_fix';
-    // Kolom-kolom yang dapat diisi massal (fillable)
+    protected $table = 'refernsi_bahasa'; // Nama tabel dalam database
+    protected $fillable = ['kode_bahasa', 'nama_bahasa']; // Kolom yang dapat diisi
 
-    protected $fillable = [
-        'name',
-        'email',
-    ];
-
+    // Tambahan kode atau metode lainnya
 }
