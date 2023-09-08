@@ -44,3 +44,6 @@ Route::resource('total-payment', 'TotalPaymentController');
 //CRUD Ref Con
 Route::resource('refper', 'RefPerController');
 
+//CRUD Clients
+Route::resource('clients', 'ClientController');
+

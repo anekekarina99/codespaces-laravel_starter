@@ -111,8 +111,21 @@ return new class extends Migration
             $table->string('nama_bahasa');
 
         });
-
+        //Tabel Permintaa Jasa
+        Schema::create('permintaan_jasa', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->string('nama_pelanggan');
+            $table->string('jenis_jasa');
+            $table->text('deskripsi');
+            $table->date('tanggal_mulai');
+            $table->date('tanggal_selesai');
+            $table->integer('total_biaya');
+            // Anda dapat menambahkan kolom lain sesuai kebutuhan Anda
+        });
     }
+
+
 
     /**
      * Reverse the migrations.
