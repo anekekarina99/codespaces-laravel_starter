@@ -8,12 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class RefPer extends Model
 {
     use HasFactory;
-    protected $table ='users_fix';
+    protected $table ='refernsi_perusahaan';
     // Kolom-kolom yang dapat diisi massal (fillable)
 
     protected $fillable = [
-        'name',
-        'email',
+        'nama',
+        'alamat',
+        'telepon'
     ];
 
 }
+

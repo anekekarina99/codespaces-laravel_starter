@@ -23,3 +23,4 @@ class ActivaOrder extends Model
         return $this->belongsTo(TotalPayment::class, 'tagihan_id', 'id');
     }
 }
+?>

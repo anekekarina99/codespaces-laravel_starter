@@ -19,3 +19,4 @@ class User extends Model
 
     // Tambahkan relasi atau metode lain yang Anda butuhkan di sini
 }
+?>

@@ -1,19 +1,17 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class TotalPayment extends Model
 {
-    use HasFactory;
-    protected $table ='users_fix';
-    // Kolom-kolom yang dapat diisi massal (fillable)
+    protected $table = 'total_payment'; // Nama tabel dalam database
+    protected $fillable = ['project_id', 'total_tagihan', 'tanggal_tagihan']; // Kolom yang dapat diisi
 
-    protected $fillable = [
-        'name',
-        'email',
-    ];
-
+    public function project()
+    {
+        return $this->belongsTo('App\Project', 'project_id');
+    }
 }
+

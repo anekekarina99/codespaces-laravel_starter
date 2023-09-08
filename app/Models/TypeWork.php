@@ -1,19 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class TypeWork extends Model
 {
-    use HasFactory;
-    protected $table ='users_fix';
-    // Kolom-kolom yang dapat diisi massal (fillable)
-
-    protected $fillable = [
-        'name',
-        'email',
-    ];
-
+    protected $table = 'type_work'; // Nama tabel dalam database
+    protected $fillable = ['name_type']; // Kolom yang dapat diisi
 }
+?>

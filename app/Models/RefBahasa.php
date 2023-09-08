@@ -11,3 +11,4 @@ class ReferensiBahasa extends Model
 
     // Tambahan kode atau metode lainnya
 }
+
