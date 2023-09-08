@@ -47,3 +47,7 @@ Route::resource('refper', 'RefPerController');
 //CRUD Clients
 Route::resource('clients', 'ClientController');
 
+//CRUD Project
+Route::resource('projects', 'ProjectController');
+
+
